@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: black;">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="home">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li>
+        <a *ngIf="!loginService.isUserLoggedIn()" routerLink="login" class="nav-link">Login</a>
+    </li>
+      <div class="dropdown">
+        <a  *ngIf="loginService.isUserLoggedIn()" class="nav-link" routerLinkActive="active-link">Services</a>
+          <i class="fa fa-caret-down"></i>
+       
+        <div class="dropdown-content">
+         
+          <a class="nav-link" routerLink="bus"><i class="fa fa-fw fa-info"></i>Available Services</a>
+          <a class="nav-link" routerLink="create-bus"><i class="fa fa-fw fa-plus"></i>Add Service</a>
+         
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a  *ngIf="loginService.isUserLoggedIn()" class="nav-link" routerLinkActive="active-link">Driver Services</a>
+          <i class="fa fa-caret-down"></i>
+       
+        <div class="dropdown-content">
+         
+          <a class="nav-link" routerLink="driver-list"><i class="fa fa-fw fa-info"></i>Driver List</a>
+          <a class="nav-link" routerLink="create-driver"><i class="fa fa-fw fa-plus"></i>Add Drivers</a>
+         
+        </div>
+      </div>
+      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about-us">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="contact-us">Contact Us</a>
+      </li>
+
+      
+    <li>
+        <a *ngIf="loginService.isUserLoggedIn()" routerLink="logout" class="nav-link">LogOut</a>
+    </li>
+    </ul>
+  </div>
+</nav>
+
+
+  <router-outlet></router-outlet>

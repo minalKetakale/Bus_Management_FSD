@@ -1,0 +1,44 @@
+<h3 style="text-align: center;">Driver List</h3>
+<table class =" table table-striped" style="margin-left: 200px;width: 1200px;border-style: hidden;margin-bottom: 300px;border: 1px;color: white;opacity: 70%;margin-top: 60px;background-color: black;">
+  
+    <thead>
+      
+        <tr>
+            <th> Driver Name</th>
+            <th> Age</th>
+            <th>  driverEmail </th>
+            <th> idProofNo</th>
+            <th> mobileNo </th>
+            <th>Actions</th>
+           
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let driver of drivers | paginate: { itemsPerPage: count, currentPage: pageNo } " >
+          
+            <td> {{ driver.name }} </td>
+            <td> {{ driver.age }} </td>
+            <td> {{ driver.driverEmail}} </td>
+            <td> {{ driver.idProofNo }} </td>
+            <td>{{driver.mobileNo}}</td>
+            
+           
+
+            
+            <td>
+              <button (click)="updateDriver(driver.driverId)" class="btn btn-info"><i class="fa fa-edit"></i>Update</button>
+              <button (click)="deleteDriver(driver.driverId)" class="btn btn-danger" style="margin-left: 10px;"><i class="fa fa-trash"></i>Delete</button>
+              <button (click)="driverDetails(driver.driverId)" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-eye"></i>View</button>
+             
+            </td>
+        </tr>
+        
+       
+
+    </tbody>
+    
+</table><br>
+
+      
+<div  style="margin-left: 1500px;color:grey;background-color:brown;"> <pagination-controls (pageChange)="pageNo = $event" ></pagination-controls> </div>
